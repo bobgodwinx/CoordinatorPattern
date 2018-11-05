@@ -1,0 +1,4 @@
+github "ReactiveX/RxSwift"
+github "onevcat/Kingfisher"
+github "Quick/Nimble"
+github "Quick/Quick"
