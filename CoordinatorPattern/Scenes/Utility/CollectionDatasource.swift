@@ -15,3 +15,8 @@ protocol CollectionRow {
     static var cellIdentifier: String {get}
     static var nibName: String { get }
 }
+
+extension CollectionRow {
+    var cellId: String { return Self.cellIdentifier }
+}
+
