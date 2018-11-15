@@ -35,3 +35,38 @@ extension UICollectionView {
         register(nib, forCellWithReuseIdentifier: row.cellIdentifier)
     }
 }
+
+/// `CollectionDatasource` conforms to `RxCollectionViewDataSource` requirements
+class CollectionDatasource: NSObject, UICollectionViewDataSource, RxCollectionViewDataSourceType, SectionedViewDataSourceType {
+    typealias Element = [CollectionRow]
+    
+    private var _model: [CollectionRow] = []
+    
+    func model(at indexPath: IndexPath) throws -> Any {
+        return _model[indexPath.row]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, observedEvent: Event<[CollectionRow]>) {
+        Binder(self) {datasource, items in
+            datasource._model = items
+            collectionView.reloadData()
+            /// This is to avoid stale data
+            /// on some cells even after
+            /// calling reloadData
+            collectionView.setNeedsLayout()
+            collectionView.layoutIfNeeded()
+            }
+            .on(observedEvent)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return _model.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let item = _model[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.cellId, for: indexPath)
+        item.configureCell(cell)
+        return cell
+    }
+}
