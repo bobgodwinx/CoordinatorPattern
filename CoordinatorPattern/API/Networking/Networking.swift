@@ -47,3 +47,21 @@ struct ResponseArray<T: Response>: Response, Collection {
         return i + 1
     }
 }
+
+//MARK: API Resource Type
+protocol Resource {
+    /// `ResponseType` is a generic placeholder
+    /// to be concretized at parse time.
+    associatedtype ResponseType: Response
+    
+    var path: String { get }
+    var method: HTTPMethod { get }
+    var parameters: NetworkParams? { get }
+    
+    /// @method: func parse(networkResponse response: NetworkResponse) throws -> ResponseType
+    ///
+    /// @param networkResponse: - a NetworkResponse type
+    ///
+    /// @return ResponseType: - any `Type` that conforms to `Response`
+    func parse(networkResponse response: NetworkResponse) throws -> ResponseType
+}
