@@ -25,3 +25,25 @@ enum HTTPMethod: String {
 
 //MARK: API Response Type
 protocol Response {}
+
+/// `ResponseArray` shadow the `Response` protocol
+/// and enforce that the collection attains a static
+/// dispatch.
+/// e.g ResponseArray<ViewItem> should contain an
+/// Array with only a `ViewItem` concrete Types
+struct ResponseArray<T: Response>: Response, Collection {
+    let content: [T]
+    
+    init(content: [T]) {
+        self.content = content
+    }
+    var startIndex: Int { return 0 }
+    var endIndex: Int { return content.count }
+    
+    subscript(position: Int) -> T {
+        return content[position]
+    }
+    func index(after i: Int) -> Int {
+        return i + 1
+    }
+}
