@@ -52,7 +52,10 @@ class CollectionDatasource: NSObject, UICollectionViewDataSource, RxCollectionVi
             collectionView.reloadData()
             /// This is to avoid stale data
             /// on some cells even after
-            /// calling reloadData
+            /// calling reloadData or the
+            /// collectionView phenomenon of flash
+            /// on screen which is because adding cells
+            /// is in the layoutSubviews method.
             collectionView.setNeedsLayout()
             collectionView.layoutIfNeeded()
             }
