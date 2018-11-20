@@ -65,3 +65,16 @@ protocol Resource {
     /// @return ResponseType: - any `Type` that conforms to `Response`
     func parse(networkResponse response: NetworkResponse) throws -> ResponseType
 }
+
+protocol Networking  {
+    /// @method: request(path: String, httpMethod method: HTTPMethod, parameters: NetworkParams)
+    ///
+    /// @param path:  - a string type that represents the path to the endPoint
+    /// @param httpMethod: - an HTTPMethod type that specifies the method for the request
+    /// e.g GET
+    /// @param parameters: - a `NetworkParams` type
+    ///
+    /// @param parameters: - an optional Array of Strings
+    func request(path: String, httpMethod method: HTTPMethod,
+                 parameters: NetworkParams?) -> Observable<NetworkResponse>
+}
