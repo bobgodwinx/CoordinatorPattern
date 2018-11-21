@@ -78,3 +78,13 @@ protocol Networking  {
     func request(path: String, httpMethod method: HTTPMethod,
                  parameters: NetworkParams?) -> Observable<NetworkResponse>
 }
+
+protocol URLSessionType {
+    /// @method: response(for request: URLRequest) -> Observable<(HTTPURLResponse, Data)>
+    ///
+    /// @param request: - a URLRequest type
+    ///
+    /// @return DataTaskResponseType: - a `Type` of Tuple `(HTTPURLResponse, Data)`
+    ///
+    func response(for request: URLRequest) -> Observable<DataTaskResponseType>
+}
