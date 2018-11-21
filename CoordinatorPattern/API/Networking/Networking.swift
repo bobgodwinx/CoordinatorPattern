@@ -88,3 +88,12 @@ protocol URLSessionType {
     ///
     func response(for request: URLRequest) -> Observable<DataTaskResponseType>
 }
+
+extension URLSession: URLSessionType {
+    /// `URLSession` conforming to `URLSessionType`
+    func response(for request: URLRequest) -> Observable<DataTaskResponseType> {
+        return rx.response(request: request)
+            .map {($0.response, $0.data)}
+            .observeOn(MainScheduler.instance)
+    }
+}
