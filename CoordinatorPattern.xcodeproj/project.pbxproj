@@ -19,6 +19,7 @@
 		C4A50F9D229988370037E608 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4A50F92229987540037E608 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4A50FA2229C6AC60037E608 /* CollectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA1229C6AC60037E608 /* CollectionDatasource.swift */; };
 		C4A50FA6229C788A0037E608 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA5229C788A0037E608 /* Networking.swift */; };
+		C4A50FA8229D9BEE0037E608 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA7229D9BEE0037E608 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		C4A50F93229987540037E608 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		C4A50FA1229C6AC60037E608 /* CollectionDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDatasource.swift; sourceTree = "<group>"; };
 		C4A50FA5229C788A0037E608 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		C4A50FA7229D9BEE0037E608 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C4A50FA5229C788A0037E608 /* Networking.swift */,
+				C4A50FA7229D9BEE0037E608 /* NetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A50FA8229D9BEE0037E608 /* NetworkService.swift in Sources */,
 				C4A50F7222980ADA0037E608 /* ViewController.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
 				C4A50FA2229C6AC60037E608 /* CollectionDatasource.swift in Sources */,
