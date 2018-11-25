@@ -14,6 +14,16 @@ import RxCocoa
 /// `Networking` which defines
 /// the contract for network communications
 class NetworkService: Networking {
+    
+    /// Handles errors from
+    /// network requests
+    enum Error: Swift.Error {
+        case badRequestURL
+        case badHTTPStatus(code: Int)
+        case requestTimedOut
+        case noInternet
+    }
+    
     func request(path: String, httpMethod method: HTTPMethod, parameters: NetworkParams?) -> Observable<NetworkResponse> {
         
         //silence the compiler
