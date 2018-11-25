@@ -24,6 +24,23 @@ class NetworkService: Networking {
         case noInternet
     }
     
+    /// Injectable URLSession and baseURL
+    private let session: URLSessionType
+    private let baseURL: String
+    
+    /// Used to configure HTTPHeader
+    private enum HTTPHeaderField {
+        static let ContentType = "Content-type"
+        static let ContentTypeJSON = "application/json"
+        static let AcceptType = "Accept"
+    }
+    
+    //Mark: init
+    init(baseURLString url: String, urlSession: URLSessionType) {
+        self.baseURL = url
+        self.session = urlSession
+    }
+    
     func request(path: String, httpMethod method: HTTPMethod, parameters: NetworkParams?) -> Observable<NetworkResponse> {
         
         //silence the compiler
