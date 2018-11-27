@@ -43,7 +43,48 @@ class NetworkService: Networking {
     
     func request(path: String, httpMethod method: HTTPMethod, parameters: NetworkParams?) -> Observable<NetworkResponse> {
         
-        //silence the compiler
-        return Observable.empty()
+        return Observable
+            .deferred { [unowned self] in
+                var urlStr = self.baseURL
+                urlStr.append("/\(path)")
+                
+                if let params = parameters {
+                    let encodedParams = params.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                    urlStr.append("/")
+                    urlStr.append(encodedParams)
+                }
+                
+                guard let url = URL(string: urlStr) else {
+                    throw Error.badRequestURL
+                }
+                var request = URLRequest(url: url)
+                
+                request.httpMethod = method.rawValue
+                request.addValue(HTTPHeaderField.ContentTypeJSON, forHTTPHeaderField: HTTPHeaderField.ContentType)
+                request.addValue(HTTPHeaderField.ContentTypeJSON, forHTTPHeaderField: HTTPHeaderField.AcceptType)
+                
+                return Observable.of(request)
+            }
+            .catchError {
+                let error = $0 as NSError
+                guard error.domain == NSURLErrorDomain else { throw $0 }
+                switch error.code {
+                case NSURLErrorTimedOut:
+                    throw Error.requestTimedOut
+                case NSURLErrorNotConnectedToInternet:
+                    throw Error.noInternet
+                default:
+                    throw error
+                }
+            }
+            .flatMap { [unowned self] request in
+                return self.session.response(for: request)
+                    .map {(response: HTTPURLResponse, data: Data) -> NetworkResponse in
+                        guard 200..<400 ~= response.statusCode else {
+                            throw Error.badHTTPStatus(code: response.statusCode)
+                        }
+                        return data
+                }
+        }
     }
 }
