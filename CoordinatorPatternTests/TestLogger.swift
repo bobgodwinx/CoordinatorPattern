@@ -20,6 +20,29 @@ extension Parameter where Self: Equatable {
     }
 }
 
+/// A type-erased parameter.
+struct AnyParameter: Parameter {
+    private let value: Any
+    init(_ value: Any) {
+        self.value = value
+    }
+    
+    func equal(_ another: Parameter) -> Bool {
+        guard let me = value as? Parameter else { return false }
+        return another.equal(me)
+    }
+}
+
+//MARK: Extensions
+extension Dictionary: Parameter {
+    func equal(_ another: Parameter) -> Bool {
+        guard let obj = another as? Dictionary else { return false }
+        return NSDictionary(dictionary: obj).isEqual(to: self)
+    }
+}
+extension URLRequest: Parameter {}
+extension String: Parameter {}
+
 class TestLogger {
     
     struct Call {
