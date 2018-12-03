@@ -70,3 +70,15 @@ class TestLogger {
         return all.filter { $0.time == clock }
     }
 }
+
+func ==(lhs: Expectation<Parameter>, rhs: Parameter) {
+    lhs.to { actualExpression, failureMessage in
+        guard let parameter = try actualExpression.evaluate() else {
+            failureMessage.stringValue = "failed to evaluate expression"
+            return false
+        }
+        failureMessage.postfixMessage = "match <\(rhs)>"
+        failureMessage.actualValue = "<\(parameter)>"
+        return parameter.equal(rhs)
+    }
+}
