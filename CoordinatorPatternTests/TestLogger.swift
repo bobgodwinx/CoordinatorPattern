@@ -71,6 +71,21 @@ class TestLogger {
     }
 }
 
+func haveEntry(for functionName: String, at time: Int? = nil) -> Predicate<TestLogger> {
+    return haveEntry(for: functionName, at: time, with: [])
+}
+
+func haveEntry(for functionname: String, at time: Int? = nil, with args: Parameter?...) -> Predicate<TestLogger> {
+    return haveEntry(for: functionname, at: time, with: args)
+}
+
+func haveEntry(for functionName: String, at time: Int? = nil, with args: [Parameter?]) -> Predicate<TestLogger> {
+    return Predicate { actual in
+        ///silence the compiler for now
+        return PredicateResult.evaluationFailed
+    }
+}
+
 func ==(lhs: Expectation<Parameter>, rhs: Parameter) {
     lhs.to { actualExpression, failureMessage in
         guard let parameter = try actualExpression.evaluate() else {
