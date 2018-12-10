@@ -22,3 +22,41 @@ extension PredicateResult {
         return PredicateResult(bool: false, message: .fail("did not get enough next events"))
     }
 }
+
+extension Expectation {
+    func transform<U>(_ closure: @escaping (T?) throws -> U?) -> Expectation<U> {
+        let exp = expression.cast(closure)
+        return Expectation<U>(expression: exp)
+    }
+}
+
+func equalNil<T>() -> Predicate<T?> {
+    return Predicate {actual in
+        guard let value = try actual.evaluate() else {
+            return PredicateResult.evaluationFailed
+        }
+        return PredicateResult(bool: value == nil,
+                               message: .expectedActualValueTo("equal <nil>"))
+    }
+}
+
+func == (lhs: Expectation<[String: Any]>, rhs: [String: Any]) {
+    lhs.to(Predicate { actual in
+        guard let dict = try actual.evaluate() else {
+            return PredicateResult.evaluationFailed
+        }
+        let nsDict = NSDictionary(dictionary: dict)
+        return PredicateResult(bool: nsDict.isEqual(to: rhs),
+                               message: .expectedCustomValueTo(String(describing: rhs), String(describing: nsDict)))
+    })
+}
+
+func match<T: Equatable>(_ expectedValue: T) -> Predicate<T?> {
+    return Predicate { actual in
+        guard let value = try actual.evaluate() else {
+            return PredicateResult.evaluationFailed
+        }
+        return PredicateResult(bool: value == expectedValue,
+                               message: .expectedCustomValueTo("match <\(expectedValue)>", "<\(value.asString())>"))
+    }
+}
