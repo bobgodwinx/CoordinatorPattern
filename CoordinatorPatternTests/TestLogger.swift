@@ -81,8 +81,50 @@ func haveEntry(for functionname: String, at time: Int? = nil, with args: Paramet
 
 func haveEntry(for functionName: String, at time: Int? = nil, with args: [Parameter?]) -> Predicate<TestLogger> {
     return Predicate { actual in
-        ///silence the compiler for now
-        return PredicateResult.evaluationFailed
+        guard let logger = try actual.evaluate() else {
+            return PredicateResult.evaluationFailed
+        }
+        let matchingCalls = logger.logBook.filter {
+            $0.name == functionName
+        }
+        guard !matchingCalls.isEmpty else {
+            return PredicateResult(bool: false,
+                                   message: .expectedTo("call <\(functionName)>"))
+        }
+        let aCall: TestLogger.Call?
+        if let t = time {
+            aCall = matchingCalls.filter { $0.time == t }.first
+        }
+        else {
+            aCall = matchingCalls.first
+        }
+        guard let call = aCall else {
+            return PredicateResult(bool: false,
+                                   message: .expectedTo("call at <\(time.asString())>"))
+        }
+        // Match parameters
+        guard !args.isEmpty else { return PredicateResult(bool: true, message: .fail("match function call")) }
+        guard args.count == call.parameters.count else {
+            return PredicateResult(bool: false, message: .expectedTo("match parameters"))
+        }
+        func match(_ lhs: Parameter?, _ rhs: Parameter?) -> Bool {
+            switch (lhs, rhs) {
+            case (nil, nil): return true
+            case (nil, _), (_, nil):
+                return false
+            default:
+                guard lhs!.equal(rhs!) else { return false }
+                return true
+            }
+        }
+        for (lhs, rhs) in zip(call.parameters, args) {
+            guard match(lhs, rhs) else {
+                return PredicateResult(bool: false,
+                                       message: .expectedCustomValueTo("call <\(functionName)> with [\(rhs.asString())]", "[\(lhs.asString())]"))
+            }
+            continue
+        }
+        return PredicateResult(bool: true, message: .fail("match call"))
     }
 }
 
