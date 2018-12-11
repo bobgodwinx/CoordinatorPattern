@@ -12,7 +12,6 @@
 		C4A50F7522980ADA0037E608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4A50F7322980ADA0037E608 /* Main.storyboard */; };
 		C4A50F7722980ADC0037E608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A50F7622980ADC0037E608 /* Assets.xcassets */; };
 		C4A50F7A22980ADC0037E608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4A50F7822980ADC0037E608 /* LaunchScreen.storyboard */; };
-		C4A50F8522980ADC0037E608 /* CoordinatorPatternTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50F8422980ADC0037E608 /* CoordinatorPatternTests.swift */; };
 		C4A50F9A229988370037E608 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4A50F93229987540037E608 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4A50F9B229988370037E608 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4A50F91229987540037E608 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4A50F9C229988370037E608 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4A50F90229987540037E608 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -21,6 +20,12 @@
 		C4A50FA6229C788A0037E608 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA5229C788A0037E608 /* Networking.swift */; };
 		C4A50FA8229D9BEE0037E608 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA7229D9BEE0037E608 /* NetworkService.swift */; };
 		C4A50FAD229EAB400037E608 /* NetworkServiceSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FAB229EA8600037E608 /* NetworkServiceSpecs.swift */; };
+		C4A50FAF229EB0F80037E608 /* TestLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FAE229EB0F80037E608 /* TestLogger.swift */; };
+		C4A50FB5229EB2F40037E608 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A50FB1229EB2160037E608 /* Nimble.framework */; };
+		C4A50FB6229EB2F40037E608 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A50FB2229EB2160037E608 /* Quick.framework */; };
+		C4A50FB8229EC5AA0037E608 /* Nimble+RxTest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FB7229EC5AA0037E608 /* Nimble+RxTest+Ext.swift */; };
+		C4A50FBA229ECDE20037E608 /* Nimble+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FB9229ECDE20037E608 /* Nimble+Ext.swift */; };
+		C4A50FBC229ECE5E0037E608 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FBB229ECE5E0037E608 /* Foundation+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4A50FB0229EB1D20037E608 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +74,6 @@
 		C4A50F7922980ADC0037E608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4A50F7B22980ADC0037E608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4A50F8022980ADC0037E608 /* CoordinatorPatternTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorPatternTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4A50F8422980ADC0037E608 /* CoordinatorPatternTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPatternTests.swift; sourceTree = "<group>"; };
 		C4A50F8622980ADC0037E608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4A50F90229987540037E608 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		C4A50F91229987540037E608 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -69,6 +83,12 @@
 		C4A50FA5229C788A0037E608 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		C4A50FA7229D9BEE0037E608 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C4A50FAB229EA8600037E608 /* NetworkServiceSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpecs.swift; sourceTree = "<group>"; };
+		C4A50FAE229EB0F80037E608 /* TestLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLogger.swift; sourceTree = "<group>"; };
+		C4A50FB1229EB2160037E608 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
+		C4A50FB2229EB2160037E608 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
+		C4A50FB7229EC5AA0037E608 /* Nimble+RxTest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nimble+RxTest+Ext.swift"; sourceTree = "<group>"; };
+		C4A50FB9229ECDE20037E608 /* Nimble+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nimble+Ext.swift"; sourceTree = "<group>"; };
+		C4A50FBB229ECE5E0037E608 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A50FB5229EB2F40037E608 /* Nimble.framework in Frameworks */,
+				C4A50FB6229EB2F40037E608 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,8 +148,11 @@
 		C4A50F8322980ADC0037E608 /* CoordinatorPatternTests */ = {
 			isa = PBXGroup;
 			children = (
-				C4A50F8422980ADC0037E608 /* CoordinatorPatternTests.swift */,
 				C4A50F8622980ADC0037E608 /* Info.plist */,
+				C4A50FAE229EB0F80037E608 /* TestLogger.swift */,
+				C4A50FBB229ECE5E0037E608 /* Foundation+Ext.swift */,
+				C4A50FB9229ECDE20037E608 /* Nimble+Ext.swift */,
+				C4A50FB7229EC5AA0037E608 /* Nimble+RxTest+Ext.swift */,
 			);
 			path = CoordinatorPatternTests;
 			sourceTree = "<group>";
@@ -135,6 +160,8 @@
 		C4A50F8F229987540037E608 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4A50FB1229EB2160037E608 /* Nimble.framework */,
+				C4A50FB2229EB2160037E608 /* Quick.framework */,
 				C4A50F93229987540037E608 /* Kingfisher.framework */,
 				C4A50F91229987540037E608 /* RxCocoa.framework */,
 				C4A50F90229987540037E608 /* RxRelay.framework */,
@@ -205,6 +232,7 @@
 				C4A50F7C22980ADC0037E608 /* Sources */,
 				C4A50F7D22980ADC0037E608 /* Frameworks */,
 				C4A50F7E22980ADC0037E608 /* Resources */,
+				C4A50FB0229EB1D20037E608 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,8 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A50F8522980ADC0037E608 /* CoordinatorPatternTests.swift in Sources */,
 				C4A50FAD229EAB400037E608 /* NetworkServiceSpecs.swift in Sources */,
+				C4A50FBC229ECE5E0037E608 /* Foundation+Ext.swift in Sources */,
+				C4A50FAF229EB0F80037E608 /* TestLogger.swift in Sources */,
+				C4A50FBA229ECDE20037E608 /* Nimble+Ext.swift in Sources */,
+				C4A50FB8229EC5AA0037E608 /* Nimble+RxTest+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +521,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoordinatorPatternTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,6 +546,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoordinatorPatternTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
