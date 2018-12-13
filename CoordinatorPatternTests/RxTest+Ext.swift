@@ -39,4 +39,18 @@ extension TestScheduler {
         }
         return observer
     }
+    
+    /// Builds a hot observable with a predefines events,
+    /// binds it's result to a specific observer and sets up disposal.
+    ///
+    /// - Parameters:
+    ///   - target: Observer to bind to
+    ///   - events: Array of recorded events to emit over the scheduled observable
+    func drive<O: ObserverType>(_ target: O, with events: [Recorded<Event<O.Element>>]) {
+        let driver = self.createHotObservable(events)
+        let disposable = driver.asObservable().bind(to: target)
+        self.scheduleAt(100000) {
+            disposable.dispose()
+        }
+    }
 }
