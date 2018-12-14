@@ -53,4 +53,12 @@ extension TestScheduler {
             disposable.dispose()
         }
     }
+    
+    /// Builds a testable observable that completes immediately
+    ///
+    /// - Parameter time: clock time to emit on, default is 0
+    /// - Returns: Testable observable that behaves similar to `Observable.empty()`
+    func empty<T>(at time: Int = 0) -> TestableObservable<T> {
+        return createColdObservable([Recorded.completed(time, T.self)])
+    }
 }
