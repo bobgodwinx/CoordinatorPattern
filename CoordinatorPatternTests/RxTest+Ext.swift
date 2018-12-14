@@ -61,4 +61,28 @@ extension TestScheduler {
     func empty<T>(at time: Int = 0) -> TestableObservable<T> {
         return createColdObservable([Recorded.completed(time, T.self)])
     }
+    
+    /// Builds a testable observable that send a single value then completes.
+    ///
+    /// - Parameters:
+    ///   - value: Value to be emitted
+    ///   - time: clock time to emit on, default is 0
+    /// - Returns: Testable observable that behaves similar to `Observable.just()`
+    func just<T>(_ value: T, at time: Int) -> TestableObservable<T> {
+        return createColdObservable([Recorded.next(time, value),
+                                     Recorded.completed(time + 1)])
+    }
+    
+    func just<T>(_ value: T, after: Int = 0) -> TestableObservable<T> {
+        let time = clock + after
+        return just(value, at: time)
+    }
+    func error<T>(_ error: Error, at time: Int) -> TestableObservable<T> {
+        return createColdObservable([Recorded(time: time, value: Event<T>.error(error))])
+    }
+    
+    func error<T>(_ error: Error, after: Int = 0) -> TestableObservable<T> {
+        let time = clock + after
+        return self.error(error, at: time)
+    }
 }
