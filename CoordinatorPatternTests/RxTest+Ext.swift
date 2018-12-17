@@ -24,6 +24,15 @@ extension Event {
     }
 }
 
+extension TestableObserver {
+    func map<U>(_ transform: (Element) -> U) -> [Recorded<Event<U>>] {
+        return events.map {recorded -> Recorded<Event<U>> in
+            let transformed = recorded.value.map(transform)
+            return Recorded(time: recorded.time, value: transformed)
+        }
+    }
+}
+
 extension TestScheduler {
     
     /// Builds testable observer for s specific observable sequence,
