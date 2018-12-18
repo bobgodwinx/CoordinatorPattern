@@ -10,7 +10,7 @@ import RxSwift
 import RxTest
 import Nimble
 
-extension Nimble.Expectation {
+public extension Nimble.Expectation {
     func to(_ matcher: (Expression<T>, FailureMessage) throws -> (Bool)) {
         let msg = FailureMessage()
         do {
@@ -19,6 +19,20 @@ extension Nimble.Expectation {
         } catch let error {
             msg.actualValue = "an unexpected error thrown: <\(error)>"
             verify(false, msg)
+        }
+    }
+    
+    func matchNext<T>(_ matcher: @escaping ([Recorded<Event<T>>]) -> PredicateResult) -> Predicate<TestableObserver<T>> {
+        return Predicate {actual in
+            guard let source = try actual.evaluate() else {
+                return PredicateResult.evaluationFailed
+            }
+            
+            let nextEvents = source.events.filter { $0.value.element != nil }
+            guard !nextEvents.isEmpty else {
+                return PredicateResult(bool: false, message: .fail("did not get enough next events"))
+            }
+            return matcher(nextEvents)
         }
     }
 }
