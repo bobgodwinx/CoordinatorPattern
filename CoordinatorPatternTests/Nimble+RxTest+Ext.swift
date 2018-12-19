@@ -66,4 +66,23 @@ public extension Nimble.Expectation {
             return matcher(error)
         }
     }
+    
+    func error<T>() -> Predicate<TestableObserver<T>> {
+        return matchError {_ in PredicateResult(bool: true, message: .fail("did not error")) }
+    }
+    
+    func error<T>(at expectedTime: TestTime) -> Predicate<TestableObserver<T>> {
+        return matchError {
+            PredicateResult(bool: $0.time == expectedTime,
+                            message: .expectedCustomValueTo("error @ <\(expectedTime)>", "@ <\($0.time)>"))
+        }
+    }
+    
+    func error<T, E: Error>(with expectedError: E) -> Predicate<TestableObserver<T>> where E: Equatable {
+        return matchError {
+            let actualError = $0.value.error
+            return PredicateResult(bool: actualError?.is(expectedError) ?? false,
+                                   message: .expectedCustomValueTo("error <\(expectedError)>", "<\(actualError.asString())>"))
+        }
+    }
 }
