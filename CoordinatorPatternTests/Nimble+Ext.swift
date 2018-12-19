@@ -18,8 +18,8 @@ extension PredicateResult {
                                message: .expectedCustomValueTo("get <\(expected.asString())>", "<\(actual.asString())>"))
     }
     
-    static var notEnoughNextEvents: PredicateResult {
-        return PredicateResult(bool: false, message: .fail("did not get enough next events"))
+    static var emptyNextEvents: PredicateResult {
+        return PredicateResult(bool: false, message: .fail("events were empty"))
     }
 }
 

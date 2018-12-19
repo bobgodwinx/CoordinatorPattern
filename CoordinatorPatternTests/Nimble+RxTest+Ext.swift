@@ -30,9 +30,27 @@ public extension Nimble.Expectation {
             
             let nextEvents = source.events.filter { $0.value.element != nil }
             guard !nextEvents.isEmpty else {
-                return PredicateResult(bool: false, message: .fail("did not get enough next events"))
+                return PredicateResult.emptyNextEvents
             }
             return matcher(nextEvents)
+        }
+    }
+    
+    func matchFirstNext<T>(_ matcher: @escaping (T) -> PredicateResult) -> Predicate<TestableObserver<T>> {
+        return matchNext {events in
+            guard let element = events.first?.value.element else {
+                return PredicateResult.emptyNextEvents
+            }
+            return matcher(element)
+        }
+    }
+    
+    func matchFirstNext<T>(_ matcher: @escaping ([T]) -> PredicateResult) -> Predicate<TestableObserver<[T]>> {
+        return matchNext { events in
+            guard let value = events.first?.value.element else {
+                return PredicateResult.emptyNextEvents
+            }
+            return matcher(value)
         }
     }
 }
