@@ -53,4 +53,17 @@ public extension Nimble.Expectation {
             return matcher(value)
         }
     }
+    
+    func matchError<T>(_ matcher: @escaping (Recorded<Event<T>>) -> PredicateResult) -> Predicate<TestableObserver<T>> {
+        return Predicate {actual in
+            guard let source = try actual.evaluate() else {
+                return PredicateResult.evaluationFailed
+            }
+            let errorEvents = source.events.filter { $0.value.isError }
+            guard let error = errorEvents.first else {
+                return PredicateResult(bool: false, message: .fail("did not error"))
+            }
+            return matcher(error)
+        }
+    }
 }
