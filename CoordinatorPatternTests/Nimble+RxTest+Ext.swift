@@ -61,14 +61,14 @@ public extension Nimble.Expectation {
             }
             let errorEvents = source.events.filter { $0.value.isError }
             guard let error = errorEvents.first else {
-                return PredicateResult(bool: false, message: .fail("did not error"))
+                return PredicateResult.expectedToError
             }
             return matcher(error)
         }
     }
     
     func error<T>() -> Predicate<TestableObserver<T>> {
-        return matchError {_ in PredicateResult(bool: true, message: .fail("did not error")) }
+        return matchError {_ in PredicateResult.erroredAsExpected }
     }
     
     func error<T>(at expectedTime: TestTime) -> Predicate<TestableObserver<T>> {

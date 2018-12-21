@@ -21,6 +21,14 @@ extension PredicateResult {
     static var emptyNextEvents: PredicateResult {
         return PredicateResult(bool: false, message: .fail("events were empty"))
     }
+    
+    static var expectedToError: PredicateResult {
+        return PredicateResult(bool: false, message: .fail("did not error"))
+    }
+    
+    static var erroredAsExpected: PredicateResult {
+        return PredicateResult(bool: true, message: .fail("did error as expected"))
+    }
 }
 
 extension Expectation {
