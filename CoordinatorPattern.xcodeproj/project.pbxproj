@@ -28,6 +28,7 @@
 		C4A50FBC229ECE5E0037E608 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FBB229ECE5E0037E608 /* Foundation+Ext.swift */; };
 		C4A50FBE22A129A50037E608 /* RxTest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FBD22A129A50037E608 /* RxTest+Ext.swift */; };
 		C4A50FC022A134CE0037E608 /* NetworkServiceSpecBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FBF22A134CE0037E608 /* NetworkServiceSpecBehavior.swift */; };
+		C4A50FC222A136370037E608 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FC122A136370037E608 /* Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		C4A50FBB229ECE5E0037E608 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
 		C4A50FBD22A129A50037E608 /* RxTest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxTest+Ext.swift"; sourceTree = "<group>"; };
 		C4A50FBF22A134CE0037E608 /* NetworkServiceSpecBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpecBehavior.swift; sourceTree = "<group>"; };
+		C4A50FC122A136370037E608 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				C4A50F8622980ADC0037E608 /* Info.plist */,
+				C4A50FC122A136370037E608 /* Mocks.swift */,
 				C4A50FAE229EB0F80037E608 /* TestLogger.swift */,
 				C4A50FBB229ECE5E0037E608 /* Foundation+Ext.swift */,
 				C4A50FB9229ECDE20037E608 /* Nimble+Ext.swift */,
@@ -328,6 +331,7 @@
 				C4A50FC022A134CE0037E608 /* NetworkServiceSpecBehavior.swift in Sources */,
 				C4A50FAD229EAB400037E608 /* NetworkServiceSpecs.swift in Sources */,
 				C4A50FBC229ECE5E0037E608 /* Foundation+Ext.swift in Sources */,
+				C4A50FC222A136370037E608 /* Mocks.swift in Sources */,
 				C4A50FAF229EB0F80037E608 /* TestLogger.swift in Sources */,
 				C4A50FBE22A129A50037E608 /* RxTest+Ext.swift in Sources */,
 				C4A50FBA229ECDE20037E608 /* Nimble+Ext.swift in Sources */,

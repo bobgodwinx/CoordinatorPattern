@@ -27,13 +27,4 @@ class NetworkServiceSpecs: QuickSpec {
     }
 }
 
-class BaseMock {
-    
-    let scheduler: TestScheduler
-    let logger: TestLogger
-    
-    init(_ scheduler: TestScheduler, _ logger: TestLogger = TestLogger()) {
-        self.scheduler = scheduler
-        self.logger = logger
-    }
-}
+
