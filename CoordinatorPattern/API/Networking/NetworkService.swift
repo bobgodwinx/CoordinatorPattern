@@ -35,7 +35,7 @@ class NetworkService: Networking {
         static let AcceptType = "Accept"
     }
     
-    //Mark: init
+    //MARK: init
     init(baseURLString url: String, urlSession: URLSessionType) {
         self.baseURL = url
         self.session = urlSession
