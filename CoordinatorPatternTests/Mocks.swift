@@ -45,3 +45,34 @@ class MockURLSession:BaseMock, URLSessionType {
         return scheduler.just((response, data)).asObservable()
     }
 }
+
+extension Expectation where T == MockURLSession {
+    var requestHeaders: Expectation<[String: String]> {
+        return transform { session in
+            session?.request?.allHTTPHeaderFields
+        }
+    }
+    var requestMethod: Expectation<String> {
+        return transform { session in
+            session?.request?.httpMethod
+        }
+    }
+    var requestURL: Expectation<String> {
+        return transform { session in
+            session?.request?.url?.absoluteString
+        }
+    }
+    var urlComponents: Expectation<[String]> {
+        return transform { session in
+            session?.request?.url?.pathComponents
+        }
+    }
+    var requestBody: Expectation<[String: Any]> {
+        return transform { session in
+            guard let body = session?.request?.httpBody else {
+                return nil
+            }
+            return try JSONSerialization.jsonObject(with: body, options: .allowFragments) as? [String: Any]
+        }
+    }
+}
