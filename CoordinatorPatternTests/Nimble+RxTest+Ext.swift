@@ -10,7 +10,7 @@ import RxSwift
 import RxTest
 import Nimble
 
-public extension Nimble.Expectation {
+public extension Expectation {
     func to(_ matcher: (Expression<T>, FailureMessage) throws -> (Bool)) {
         let msg = FailureMessage()
         do {
