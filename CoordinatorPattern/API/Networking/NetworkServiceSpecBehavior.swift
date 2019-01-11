@@ -46,5 +46,14 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
             sut = nil
             request = nil
         }
+        
+        /// We're going to be using a dummy data from ebay
+        /// most especially the m.mobile.de which is really
+        /// a fast API to just get images of a specific car
+        /// listing. I used this API a lot this is why I know
+        /// almost everything behind the scene. However I
+        /// change it later to gitHub API in the future.
+        /// but for now we use this:
+        /// https://m.mobile.de/svc/a/262183162
     }
 }
