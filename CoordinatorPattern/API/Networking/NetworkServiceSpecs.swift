@@ -15,14 +15,28 @@ import RxSwift
 
 class NetworkServiceSpecs: QuickSpec {
     override func spec() {
-        ///Implement Specs
+        var sut: NetworkService!
+        var mockSession: MockURLSession!
+        var scheduler: TestScheduler!
+        var logger: TestLogger!
+        var request: Observable<NetworkResponse>!
         
         beforeEach {
-          /// Setup Properties
+            scheduler = TestScheduler(initialClock: 0)
+            logger = TestLogger()
+            mockSession = MockURLSession(scheduler, logger)
+            sut = NetworkService(baseURLString: "https://m.mobile.de", urlSession: mockSession)
         }
         
         afterEach {
-            /// De-init or set to nil 
+            sut = nil
+            mockSession = nil
+            scheduler = nil
+            logger = nil
+        }
+        
+        itBehavesLike(NetworkServiceSpecBehavior.self) {
+            NetworkServiceContext(sut: sut, scheduler: scheduler, logger: logger, session: mockSession)
         }
     }
 }
