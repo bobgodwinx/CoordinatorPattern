@@ -55,5 +55,49 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
         /// change it later to gitHub API in the future.
         /// but for now we use this:
         /// https://m.mobile.de/svc/a/262183162
+        
+        describe("GET") {
+            it("set HTTP method") {
+                request = sut.request(path: "262183162", httpMethod: .GET, parameters: nil)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+                expect(session).requestMethod.to(match(HTTPMethod.GET.rawValue))
+            }
+            
+            it("append URL encoded, if has parameters") {
+                let parameters = "262183162"
+                request = sut.request(path: "svc/a", httpMethod: .GET, parameters: parameters)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+                let expectedRequestURL = "https://m.mobile.de/svc/a/262183162"
+                expect(session).requestURL.to(match(expectedRequestURL) )
+            }
+            
+            it("append nothing, if no parameters") {
+                request = sut.request(path: "svc/a", httpMethod: .GET, parameters: nil)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+                let expectedRequestURL = "https://m.mobile.de/svc/a"
+                expect(session).requestURL.to(match(expectedRequestURL))
+            }
+            
+            it("contains the expected URLPathComponets") {
+                let parameters = "262183162"
+                request = sut.request(path: "svc/a", httpMethod: .GET, parameters: parameters)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+                let urlComponents = ["/", "svc", "a", "262183162"]
+                let expectedRequestURL = "https://m.mobile.de/svc/a"
+                expect(session).requestURL.to(match(expectedRequestURL))
+                expect(session).urlComponents == urlComponents
+            }
+            
+            it("contains no body") {
+                request = sut.request(path: "262183162", httpMethod: .GET, parameters: nil)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+                expect(session).requestBody.to(beNil())
+            }
+        }
     }
 }
