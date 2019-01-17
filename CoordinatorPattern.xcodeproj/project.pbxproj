@@ -19,7 +19,6 @@
 		C4A50FA2229C6AC60037E608 /* CollectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA1229C6AC60037E608 /* CollectionDatasource.swift */; };
 		C4A50FA6229C788A0037E608 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA5229C788A0037E608 /* Networking.swift */; };
 		C4A50FA8229D9BEE0037E608 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FA7229D9BEE0037E608 /* NetworkService.swift */; };
-		C4C6E92F22A14E3E00921114 /* CoordinatorPatternTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E92E22A14E3E00921114 /* CoordinatorPatternTests.swift */; };
 		C4C6E93622A14E6C00921114 /* dummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A50FC522A1400A0037E608 /* dummyData.json */; };
 		C4C6E93722A14E6D00921114 /* dummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = C4A50FC522A1400A0037E608 /* dummyData.json */; };
 		C4C6E93822A14E9C00921114 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A50FC122A136370037E608 /* Mocks.swift */; };
@@ -106,7 +105,6 @@
 		C4A50FC122A136370037E608 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		C4A50FC522A1400A0037E608 /* dummyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummyData.json; sourceTree = "<group>"; };
 		C4C6E92C22A14E3E00921114 /* CoordinatorPatternTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorPatternTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4C6E92E22A14E3E00921114 /* CoordinatorPatternTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPatternTests.swift; sourceTree = "<group>"; };
 		C4C6E93022A14E3E00921114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4C6E94622A1534F00921114 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		C4C6E94722A1534F00921114 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 				C4A50FB7229EC5AA0037E608 /* Nimble+RxTest+Ext.swift */,
 				C4A50FBD22A129A50037E608 /* RxTest+Ext.swift */,
 				C4A50FC522A1400A0037E608 /* dummyData.json */,
-				C4C6E92E22A14E3E00921114 /* CoordinatorPatternTests.swift */,
 				C4C6E93022A14E3E00921114 /* Info.plist */,
 			);
 			path = CoordinatorPatternTests;
@@ -348,7 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4C6E93922A14E9E00921114 /* TestLogger.swift in Sources */,
-				C4C6E92F22A14E3E00921114 /* CoordinatorPatternTests.swift in Sources */,
 				C4C6E93D22A14EAA00921114 /* RxTest+Ext.swift in Sources */,
 				C4C6E93C22A14EA700921114 /* Nimble+RxTest+Ext.swift in Sources */,
 				C4C6E93A22A14EA100921114 /* Foundation+Ext.swift in Sources */,
