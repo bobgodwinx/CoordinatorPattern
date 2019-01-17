@@ -1,4 +1,6 @@
 Carthage/
 .DS_Store
+CoordinatorPattern.xcodeproj/xcshareddata/
+CoordinatorPattern.xcodeproj/xcshareddata
 CoordinatorPattern.xcworkspace/xcuserdata/*
 CoordinatorPattern.xcworkspace/xcuserdata/bob.xcuserdatad/UserInterfaceState.xcuserstate

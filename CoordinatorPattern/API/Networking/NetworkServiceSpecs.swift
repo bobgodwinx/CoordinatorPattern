@@ -19,7 +19,6 @@ class NetworkServiceSpecs: QuickSpec {
         var mockSession: MockURLSession!
         var scheduler: TestScheduler!
         var logger: TestLogger!
-        var request: Observable<NetworkResponse>!
         
         beforeEach {
             scheduler = TestScheduler(initialClock: 0)
