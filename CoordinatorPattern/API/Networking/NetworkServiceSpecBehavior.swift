@@ -99,5 +99,17 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
                 expect(session).requestBody.to(beNil())
             }
         }
+        
+        describe("Call") {
+            it("make the urlRequest by calling #function with name") {
+                let path = "svc/a"
+                let parameter = "262183162"
+                let functionName = "response(for:)"
+                request = sut.request(path: path, httpMethod: .GET, parameters: parameter)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+                expect(logger).to(haveEntry(for: functionName, at: 0))
+            }
+        }
     }
 }
