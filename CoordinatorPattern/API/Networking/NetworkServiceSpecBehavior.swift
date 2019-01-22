@@ -111,5 +111,28 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
                 expect(logger).to(haveEntry(for: functionName, at: 0))
             }
         }
+        
+        describe("Response") {
+            
+            afterEach {
+                response = nil
+            }
+            
+            it("output data") {
+                session.data = "hello, World!".data(using: .utf8)!
+                request = sut.request(path: "foo", httpMethod: .GET, parameters: nil)
+                response = scheduler.record(source: request)
+                scheduler.start()
+                expect(response).to(match(data: "hello, World!"))
+            }
+            
+            func match(data expectedData: String) -> Predicate<TestableObserver<NetworkResponse>> {
+                return matchFirstNext {response in
+                    let responseString = String(data: response, encoding: .utf8)
+                    return PredicateResult(bool: responseString == expectedData,
+                                           message: .expectedCustomValueTo(responseString.asString(), expectedData))
+                }
+            }
+        }
     }
 }
