@@ -21,68 +21,68 @@ public extension Expectation {
             verify(false, msg)
         }
     }
-    
-    func matchNext<T>(_ matcher: @escaping ([Recorded<Event<T>>]) -> PredicateResult) -> Predicate<TestableObserver<T>> {
-        return Predicate {actual in
-            guard let source = try actual.evaluate() else {
-                return PredicateResult.evaluationFailed
-            }
-            
-            let nextEvents = source.events.filter { $0.value.element != nil }
-            guard !nextEvents.isEmpty else {
-                return PredicateResult.emptyNextEvents
-            }
-            return matcher(nextEvents)
+}
+
+func matchNext<T>(_ matcher: @escaping ([Recorded<Event<T>>]) -> PredicateResult) -> Predicate<TestableObserver<T>> {
+    return Predicate {actual in
+        guard let source = try actual.evaluate() else {
+            return PredicateResult.evaluationFailed
         }
-    }
-    
-    func matchFirstNext<T>(_ matcher: @escaping (T) -> PredicateResult) -> Predicate<TestableObserver<T>> {
-        return matchNext {events in
-            guard let element = events.first?.value.element else {
-                return PredicateResult.emptyNextEvents
-            }
-            return matcher(element)
+        
+        let nextEvents = source.events.filter { $0.value.element != nil }
+        guard !nextEvents.isEmpty else {
+            return PredicateResult.emptyNextEvents
         }
+        return matcher(nextEvents)
     }
-    
-    func matchFirstNext<T>(_ matcher: @escaping ([T]) -> PredicateResult) -> Predicate<TestableObserver<[T]>> {
-        return matchNext { events in
-            guard let value = events.first?.value.element else {
-                return PredicateResult.emptyNextEvents
-            }
-            return matcher(value)
+}
+
+func matchFirstNext<T>(_ matcher: @escaping (T) -> PredicateResult) -> Predicate<TestableObserver<T>> {
+    return matchNext {events in
+        guard let element = events.first?.value.element else {
+            return PredicateResult.emptyNextEvents
         }
+        return matcher(element)
     }
-    
-    func matchError<T>(_ matcher: @escaping (Recorded<Event<T>>) -> PredicateResult) -> Predicate<TestableObserver<T>> {
-        return Predicate {actual in
-            guard let source = try actual.evaluate() else {
-                return PredicateResult.evaluationFailed
-            }
-            let errorEvents = source.events.filter { $0.value.isError }
-            guard let error = errorEvents.first else {
-                return PredicateResult.expectedToError
-            }
-            return matcher(error)
+}
+
+func matchFirstNext<T>(_ matcher: @escaping ([T]) -> PredicateResult) -> Predicate<TestableObserver<[T]>> {
+    return matchNext { events in
+        guard let value = events.first?.value.element else {
+            return PredicateResult.emptyNextEvents
         }
+        return matcher(value)
     }
-    
-    func error<T>() -> Predicate<TestableObserver<T>> {
-        return matchError {_ in PredicateResult.erroredAsExpected }
-    }
-    
-    func error<T>(at expectedTime: TestTime) -> Predicate<TestableObserver<T>> {
-        return matchError {
-            PredicateResult(bool: $0.time == expectedTime,
-                            message: .expectedCustomValueTo("error @ <\(expectedTime)>", "@ <\($0.time)>"))
+}
+
+func matchError<T>(_ matcher: @escaping (Recorded<Event<T>>) -> PredicateResult) -> Predicate<TestableObserver<T>> {
+    return Predicate {actual in
+        guard let source = try actual.evaluate() else {
+            return PredicateResult.evaluationFailed
         }
-    }
-    
-    func error<T, E: Error>(with expectedError: E) -> Predicate<TestableObserver<T>> where E: Equatable {
-        return matchError {
-            let actualError = $0.value.error
-            return PredicateResult(bool: actualError?.is(expectedError) ?? false,
-                                   message: .expectedCustomValueTo("error <\(expectedError)>", "<\(actualError.asString())>"))
+        let errorEvents = source.events.filter { $0.value.isError }
+        guard let error = errorEvents.first else {
+            return PredicateResult.expectedToError
         }
+        return matcher(error)
+    }
+}
+
+func error<T>() -> Predicate<TestableObserver<T>> {
+    return matchError {_ in PredicateResult.erroredAsExpected }
+}
+
+func error<T>(at expectedTime: TestTime) -> Predicate<TestableObserver<T>> {
+    return matchError {
+        PredicateResult(bool: $0.time == expectedTime,
+                        message: .expectedCustomValueTo("error @ <\(expectedTime)>", "@ <\($0.time)>"))
+    }
+}
+
+func error<T, E: Error>(with expectedError: E) -> Predicate<TestableObserver<T>> where E: Equatable {
+    return matchError {
+        let actualError = $0.value.error
+        return PredicateResult(bool: actualError?.is(expectedError) ?? false,
+                               message: .expectedCustomValueTo("error <\(expectedError)>", "<\(actualError.asString())>"))
     }
 }
