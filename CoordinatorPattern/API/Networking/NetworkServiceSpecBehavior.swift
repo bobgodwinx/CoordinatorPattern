@@ -134,5 +134,33 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
                 }
             }
         }
+        
+        describe("Headers") {
+            beforeEach {
+                request = sut.request(path: "foo", httpMethod: .GET, parameters: nil)
+                _ = scheduler.record(source: request)
+                scheduler.start()
+            }
+            it("set content type -> application/json") {
+                expect(session).requestHeaders.to(containHeader("Content-Type", value: "application/json"))
+            }
+            it("set accept type -> application/json") {
+                expect(session).requestHeaders.to(containHeader("Accept", value: "application/json"))
+            }
+            
+            func containHeader(_ key: String, value: String? = nil) -> Predicate<[String: String]> {
+                return Predicate { actual in
+                    guard let dict = try actual.evaluate() else {
+                        return PredicateResult.evaluationFailed
+                    }
+                    guard let actualValue = dict[key] else {
+                        return PredicateResult(status: .doesNotMatch,
+                                               message: .expectedTo("contain <\(key)>"))
+                    }
+                    return PredicateResult(bool: value.match(actualValue),
+                                           message: .expectedCustomValueTo("[\(key):\(value.asString())]", "<\(actualValue)>"))
+                }
+            }
+        }
     }
 }
