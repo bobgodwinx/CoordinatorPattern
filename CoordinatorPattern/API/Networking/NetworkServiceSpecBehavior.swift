@@ -164,3 +164,21 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
         }
     }
 }
+
+
+
+extension NetworkService.Error: Equatable {
+    public static func == (lhs: NetworkService.Error, rhs: NetworkService.Error) -> Bool {
+        switch lhs {
+        case .badRequestURL:
+            if case badRequestURL = rhs { return true }
+        case badHTTPStatus(let code1):
+            if case badHTTPStatus(let code2) = rhs { return code1 == code2 }
+        case .requestTimedOut:
+            if case requestTimedOut = rhs { return true }
+        case .noInternet:
+            if case noInternet = rhs { return true }
+        }
+        return false
+    }
+}
