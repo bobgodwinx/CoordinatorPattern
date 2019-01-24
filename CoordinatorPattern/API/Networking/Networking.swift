@@ -21,6 +21,10 @@ enum HTTPMethod: String {
     /// the only method
     /// found on the API
     case GET = "GET"
+    //TODO: Add examples of POST, PUT, DELETE 
+    case POST = "POST"
+    case PUT = "PUT"
+    case DELETE = "DELETE"
 }
 
 //MARK: API Response Type
