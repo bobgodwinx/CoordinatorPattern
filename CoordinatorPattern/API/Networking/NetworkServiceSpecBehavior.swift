@@ -162,6 +162,38 @@ class NetworkServiceSpecBehavior: Quick.Behavior<NetworkServiceContext> {
                 }
             }
         }
+        
+        describe("Errors") {
+            
+            afterEach {
+                response = nil
+            }
+            
+            it("throw `bad request URL`, if failed to build request URL") {
+                request = sut.request(path: "\\", httpMethod: .GET, parameters: nil)
+                response = scheduler.record(source: request)
+                scheduler.start()
+                expect(response).to(error(with: NetworkService.Error.badRequestURL))
+            }
+            
+            describe("Status Code errors") {
+                it("throw `bad status code', if response code is less than 200") {
+                    session.statusCode = 199
+                    request = sut.request(path: "any-path", httpMethod: .GET, parameters: nil)
+                    response = scheduler.record(source: request)
+                    scheduler.start()
+                    expect(response).to(error(with: NetworkService.Error.badHTTPStatus(code: 199)))
+                }
+                
+                it("throw `bad status code', if response code is 400") {
+                    session.statusCode = 400
+                    request = sut.request(path: "any-path", httpMethod: .GET, parameters: nil)
+                    response = scheduler.record(source: request)
+                    scheduler.start()
+                    expect(response).to(error(with: NetworkService.Error.badHTTPStatus(code: 400)))
+                }
+            }
+        }
     }
 }
 
