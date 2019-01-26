@@ -21,7 +21,18 @@ class APIClient {
     }
     
     /// Initialization
+    //TODO: Figure out how to hide the init but still testable..
     init(networkService: Networking) {
         self.network = networkService
     }
+    
+    /// sharedInstance
+    static let shared: APIClient = {
+        let baseURL: String = "https://m.mobile.de"
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForResource = 60.0
+        let session = URLSession(configuration: config)
+        
+        return APIClient(networkService: NetworkService(baseURLString: baseURL, urlSession: session))
+    }()
 }
