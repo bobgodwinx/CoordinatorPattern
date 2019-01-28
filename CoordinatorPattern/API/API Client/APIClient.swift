@@ -12,7 +12,7 @@ import RxCocoa
 
 class APIClient {
     /// Injected `Networking`
-    fileprivate let network: Networking
+    private let network: Networking
     
     /// API Error
     enum Error: Swift.Error {
@@ -35,4 +35,14 @@ class APIClient {
         
         return APIClient(networkService: NetworkService(baseURLString: baseURL, urlSession: session))
     }()
+    
+    /// Generic Request Operations
+    func request<T: Resource>(_ resource: T) -> Observable<T.ResponseType> {
+        
+        let request = network.request(path: resource.path,
+                                      httpMethod: resource.method,
+                                      parameters: resource.parameters)
+        
+        return request.map(resource.parse)
+    }
 }
