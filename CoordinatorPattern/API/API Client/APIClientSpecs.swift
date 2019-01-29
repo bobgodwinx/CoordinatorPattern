@@ -27,3 +27,11 @@ class APIClientSpecs: QuickSpec {
         }
     }
 }
+
+
+class MockNetworking: BaseMock, Networking {
+    func request(path: String, httpMethod method: HTTPMethod, parameters: NetworkParams?) -> Observable<NetworkResponse> {
+        logger.entry(path, parameters)
+        return scheduler.just(Data()).asObservable()
+    }
+}
