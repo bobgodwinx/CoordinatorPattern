@@ -18,12 +18,23 @@ import RxCocoa
 class APIClientSpecs: QuickSpec {
     override func spec() {
         
+        var sut: APIClient!
+        var logger: TestLogger!
+        var scheduler: TestScheduler!
+        var mockService: MockNetworking!
+        
         beforeEach {
-            /// Setup
+            scheduler = TestScheduler(initialClock: 0)
+            logger = TestLogger()
+            mockService = MockNetworking(scheduler, logger)
+            sut = APIClient(networkService: mockService)
         }
         
         afterEach {
-            /// tear down
+            logger = nil
+            scheduler = nil
+            mockService = nil
+            sut = nil
         }
     }
 }
