@@ -22,11 +22,13 @@ class APIClientSpecs: QuickSpec {
         var logger: TestLogger!
         var scheduler: TestScheduler!
         var mockService: MockNetworking!
+        var mockEndpoint: MockEndpoint!
         
         beforeEach {
             scheduler = TestScheduler(initialClock: 0)
             logger = TestLogger()
             mockService = MockNetworking(scheduler, logger)
+            mockEndpoint = MockEndpoint(parameters: "\(262183162)")
             sut = APIClient(networkService: mockService)
         }
         
@@ -34,7 +36,24 @@ class APIClientSpecs: QuickSpec {
             logger = nil
             scheduler = nil
             mockService = nil
+            mockEndpoint = nil
             sut = nil
+        }
+        
+        it("Should make the Networking call when requested") {
+            _ = scheduler.record(source: sut.request(mockEndpoint))
+            scheduler.start()
+            let functionName = "request(path:httpMethod:parameters:)"
+            expect(logger).to(haveEntry(for: functionName, at: 0))
+        }
+        
+        it("It make the Networking call when requested") {
+            _ = scheduler.record(source: sut.request(mockEndpoint))
+            scheduler.start()
+            let path = "svc/a"
+            let parameter = "262183162"
+            let functionName = "request(path:httpMethod:parameters:)"
+            expect(logger).to(haveEntry(for: functionName, at: 0, with: path, parameter))
         }
     }
 }
