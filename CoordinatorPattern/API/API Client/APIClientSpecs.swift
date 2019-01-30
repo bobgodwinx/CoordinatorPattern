@@ -46,3 +46,22 @@ class MockNetworking: BaseMock, Networking {
         return scheduler.just(Data()).asObservable()
     }
 }
+
+extension String: Response {}
+
+struct MockEndpoint: Resource {
+    typealias Response = ResponseArray<String>
+    
+    var path: String { return "svc/a" }
+    var method: HTTPMethod { return HTTPMethod.GET }
+    var parameters: String?
+    
+    init(parameters: String?) {
+        self.parameters = parameters
+    }
+    
+    func parse(networkResponse response: NetworkResponse) throws -> ResponseArray<String> {
+        return ResponseArray(content: [])
+    }
+}
+
