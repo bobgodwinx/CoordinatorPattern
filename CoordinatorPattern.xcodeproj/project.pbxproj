@@ -37,6 +37,7 @@
 		C4C6E95222A153E700921114 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4C6E95022A153D600921114 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4C6E95522A1702900921114 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E95422A1702900921114 /* APIClient.swift */; };
 		C4C6E95722A1723A00921114 /* APIClientSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E95622A1723A00921114 /* APIClientSpecs.swift */; };
+		C4C6E95C22A183D000921114 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E95B22A183D000921114 /* Foundation+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		C4C6E95022A153D600921114 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		C4C6E95422A1702900921114 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		C4C6E95622A1723A00921114 /* APIClientSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientSpecs.swift; sourceTree = "<group>"; };
+		C4C6E95B22A183D000921114 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C4A50FA1229C6AC60037E608 /* CollectionDatasource.swift */,
+				C4C6E95B22A183D000921114 /* Foundation+Ext.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				C4A50FA8229D9BEE0037E608 /* NetworkService.swift in Sources */,
 				C4A50F7222980ADA0037E608 /* ViewController.swift in Sources */,
+				C4C6E95C22A183D000921114 /* Foundation+Ext.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
 				C4A50FA2229C6AC60037E608 /* CollectionDatasource.swift in Sources */,
 				C4A50FA6229C788A0037E608 /* Networking.swift in Sources */,
