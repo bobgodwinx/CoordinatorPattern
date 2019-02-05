@@ -40,6 +40,7 @@
 		C4C6E95C22A183D000921114 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E95B22A183D000921114 /* Foundation+Ext.swift */; };
 		C4C6E95F22A1853E00921114 /* ViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E95E22A1853E00921114 /* ViewItem.swift */; };
 		C4C6E96122A1855600921114 /* ItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E96022A1855600921114 /* ItemContainer.swift */; };
+		C4C6E96322A1888900921114 /* ViewItemSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E96222A1888900921114 /* ViewItemSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		C4C6E95B22A183D000921114 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
 		C4C6E95E22A1853E00921114 /* ViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItem.swift; sourceTree = "<group>"; };
 		C4C6E96022A1855600921114 /* ItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemContainer.swift; sourceTree = "<group>"; };
+		C4C6E96222A1888900921114 /* ViewItemSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemSpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				C4C6E96022A1855600921114 /* ItemContainer.swift */,
 				C4C6E95E22A1853E00921114 /* ViewItem.swift */,
+				C4C6E96222A1888900921114 /* ViewItemSpecs.swift */,
 			);
 			path = "Concrete Models";
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				C4C6E93C22A14EA700921114 /* Nimble+RxTest+Ext.swift in Sources */,
 				C4C6E93A22A14EA100921114 /* Foundation+Ext.swift in Sources */,
 				C4C6E93E22A14EB000921114 /* NetworkServiceSpecs.swift in Sources */,
+				C4C6E96322A1888900921114 /* ViewItemSpecs.swift in Sources */,
 				C4C6E93F22A14EB300921114 /* NetworkServiceSpecBehavior.swift in Sources */,
 				C4C6E93B22A14EA400921114 /* Nimble+Ext.swift in Sources */,
 				C4C6E93822A14E9C00921114 /* Mocks.swift in Sources */,
