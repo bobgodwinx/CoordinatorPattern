@@ -42,6 +42,7 @@
 		C4C6E96122A1855600921114 /* ItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E96022A1855600921114 /* ItemContainer.swift */; };
 		C4C6E96322A1888900921114 /* ViewItemSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E96222A1888900921114 /* ViewItemSpecs.swift */; };
 		C4C6E96922A1940300921114 /* ViewItemAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E96822A1940300921114 /* ViewItemAPI.swift */; };
+		C4C6E96B22A1948A00921114 /* ViewItemEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E96A22A1948A00921114 /* ViewItemEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		C4C6E96022A1855600921114 /* ItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemContainer.swift; sourceTree = "<group>"; };
 		C4C6E96222A1888900921114 /* ViewItemSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemSpecs.swift; sourceTree = "<group>"; };
 		C4C6E96822A1940300921114 /* ViewItemAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemAPI.swift; sourceTree = "<group>"; };
+		C4C6E96A22A1948A00921114 /* ViewItemEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C6E96822A1940300921114 /* ViewItemAPI.swift */,
+				C4C6E96A22A1948A00921114 /* ViewItemEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			files = (
 				C4A50FA8229D9BEE0037E608 /* NetworkService.swift in Sources */,
 				C4A50F7222980ADA0037E608 /* ViewController.swift in Sources */,
+				C4C6E96B22A1948A00921114 /* ViewItemEndpoint.swift in Sources */,
 				C4C6E95C22A183D000921114 /* Foundation+Ext.swift in Sources */,
 				C4C6E95F22A1853E00921114 /* ViewItem.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
