@@ -31,3 +31,14 @@ struct ViewItemEndpoint: Resource {
         return ResponseArray(content: container.images)
     }
 }
+
+/// Conforming to `ViewItemAPI`
+/// This enables us to inject
+/// `APIClient` as a Type of `ViewItemAPI`
+extension APIClient: ViewItemAPI {
+    
+    func fetchViewItems(with id: String) -> Observable<[ViewItem]> {
+        let resource = ViewItemEndpoint(parameters: id)
+        return request(resource).map { $0.content }
+    }
+}
