@@ -168,6 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				C4A50F9F229C6A740037E608 /* Scenes */,
+				C4C6E96E22A1992800921114 /* ViewModels */,
+				C4C6E96D22A1991E00921114 /* Providers */,
+				C4C6E96C22A1990600921114 /* Models */,
 				C4A50FA3229C78250037E608 /* API */,
 				C4A50F6F22980ADA0037E608 /* AppDelegate.swift */,
 				C4A50F7122980ADA0037E608 /* ViewController.swift */,
@@ -196,7 +199,6 @@
 		C4A50F9F229C6A740037E608 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C4C6E95D22A1851200921114 /* Concrete Models */,
 				C4A50FA0229C6A830037E608 /* Utility */,
 			);
 			path = Scenes;
@@ -256,16 +258,6 @@
 			path = "API Client";
 			sourceTree = "<group>";
 		};
-		C4C6E95D22A1851200921114 /* Concrete Models */ = {
-			isa = PBXGroup;
-			children = (
-				C4C6E96022A1855600921114 /* ItemContainer.swift */,
-				C4C6E95E22A1853E00921114 /* ViewItem.swift */,
-				C4C6E96222A1888900921114 /* ViewItemSpecs.swift */,
-			);
-			path = "Concrete Models";
-			sourceTree = "<group>";
-		};
 		C4C6E96722A193D400921114 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +265,30 @@
 				C4C6E96A22A1948A00921114 /* ViewItemEndpoint.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		C4C6E96C22A1990600921114 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4C6E96022A1855600921114 /* ItemContainer.swift */,
+				C4C6E95E22A1853E00921114 /* ViewItem.swift */,
+				C4C6E96222A1888900921114 /* ViewItemSpecs.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4C6E96D22A1991E00921114 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		C4C6E96E22A1992800921114 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
