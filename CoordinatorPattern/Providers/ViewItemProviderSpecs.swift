@@ -27,6 +27,17 @@ class ViewItemProviderSpecs: QuickSpec {
     }
 }
 
+class MockAPIClient: BaseMock, ViewItemAPI {
+    
+    func fetchViewItems(with id: String) -> Observable<[ViewItem]> {
+        logger.entry(id)
+        
+        return scheduler
+            .createColdObservable([Recorded.next(10, dummyData())])
+            .asObservable()
+    }
+}
+
 func dummyData() -> [ViewItem] {
     let path = Bundle.main.path(forResource: "ViewItems", ofType: "json")!
     let data = try! Data(contentsOf: URL(fileURLWithPath: path))
