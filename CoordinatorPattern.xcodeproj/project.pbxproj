@@ -49,6 +49,7 @@
 		C4C6E97922A19EF900921114 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E97822A19EF900921114 /* ActivityIndicator.swift */; };
 		C4C6E97B22A1A64B00921114 /* ViewItemCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E97A22A1A64B00921114 /* ViewItemCellViewModelType.swift */; };
 		C4C6E97D22A1A7E800921114 /* ViewItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E97C22A1A7E800921114 /* ViewItemCellViewModel.swift */; };
+		C4C6E97F22A1A97D00921114 /* ViewItemProviderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E97E22A1A97D00921114 /* ViewItemProviderSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		C4C6E97822A19EF900921114 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		C4C6E97A22A1A64B00921114 /* ViewItemCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCellViewModelType.swift; sourceTree = "<group>"; };
 		C4C6E97C22A1A7E800921114 /* ViewItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCellViewModel.swift; sourceTree = "<group>"; };
+		C4C6E97E22A1A97D00921114 /* ViewItemProviderSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemProviderSpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 			children = (
 				C4C6E97222A19B2300921114 /* ViewItemProviderType.swift */,
 				C4C6E97522A19D2F00921114 /* ViewItemProvider.swift */,
+				C4C6E97E22A1A97D00921114 /* ViewItemProviderSpecs.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				C4C6E97122A19A1100921114 /* ViewItemEndpointSpecs.swift in Sources */,
 				C4C6E96322A1888900921114 /* ViewItemSpecs.swift in Sources */,
 				C4C6E93F22A14EB300921114 /* NetworkServiceSpecBehavior.swift in Sources */,
+				C4C6E97F22A1A97D00921114 /* ViewItemProviderSpecs.swift in Sources */,
 				C4C6E93B22A14EA400921114 /* Nimble+Ext.swift in Sources */,
 				C4C6E93822A14E9C00921114 /* Mocks.swift in Sources */,
 			);
