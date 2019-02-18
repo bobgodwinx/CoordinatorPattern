@@ -26,3 +26,12 @@ class ViewItemProviderSpecs: QuickSpec {
         }
     }
 }
+
+func dummyData() -> [ViewItem] {
+    let path = Bundle.main.path(forResource: "ViewItems", ofType: "json")!
+    let data = try! Data(contentsOf: URL(fileURLWithPath: path))
+    let decoder = JSONDecoder()
+    
+    let items = try! decoder.decode(ItemContainer.self, from: data)
+    return items.images
+}
