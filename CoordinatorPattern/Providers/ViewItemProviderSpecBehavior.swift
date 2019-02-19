@@ -40,5 +40,19 @@ class ViewItemProviderSpecBehavior: Quick.Behavior<ViewItemProviderContext> {
             logger = nil
         }
         
+        it("Should return an Array of ViewItemCellViewModelType") {
+            SharingScheduler.mock(scheduler: scheduler) {
+                /// trigger a call
+                scheduler.drive(sut.sink, with: [Recorded.next(0, "262183162")])
+                /// observe events
+                let recoredEvent = scheduler.record(source: sut.items)
+                /// start our scheduler
+                scheduler.start()
+                let items = recoredEvent.events.first!.value.element!
+                /// assert the result
+                expect(items).to(beAKindOf(Array<ViewItemCellViewModelType>.self))
+            }
+        }
+        
     }
 }
