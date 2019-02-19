@@ -17,12 +17,27 @@ import RxCocoa
 class ViewItemProviderSpecs: QuickSpec {
     override func spec() {
         
+        var sut: ViewItemProvider!
+        var mockAPI: MockAPIClient!
+        var logger: TestLogger!
+        var scheduler: TestScheduler!
+        
         beforeEach {
-            /// setup
+            scheduler = TestScheduler(initialClock: 0)
+            logger = TestLogger()
+            mockAPI = MockAPIClient(scheduler, logger)
+            sut = ViewItemProvider(mockAPI)
         }
         
         afterEach {
-            /// tear down
+            sut = nil
+            mockAPI = nil
+            logger = nil
+            scheduler = nil
+        }
+        
+        itBehavesLike(ViewItemProviderSpecBehavior.self) {
+            ViewItemProviderContext(sut: sut, scheduler: scheduler, logger: logger)
         }
     }
 }
@@ -39,7 +54,7 @@ class MockAPIClient: BaseMock, ViewItemAPI {
 }
 
 func dummyData() -> [ViewItem] {
-    let path = Bundle.main.path(forResource: "ViewItems", ofType: "json")!
+    let path = Bundle.main.path(forResource: "dummyData", ofType: "json")!
     let data = try! Data(contentsOf: URL(fileURLWithPath: path))
     let decoder = JSONDecoder()
     
