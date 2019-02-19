@@ -19,3 +19,26 @@ struct ViewItemProviderContext {
     let scheduler: TestScheduler
     let logger: TestLogger
 }
+
+
+class ViewItemProviderSpecBehavior: Quick.Behavior<ViewItemProviderContext> {
+    override class func spec(_ context: @escaping () -> ViewItemProviderContext ) {
+        var sut: ViewItemProvider!
+        var scheduler: TestScheduler!
+        var logger: TestLogger!
+        
+        beforeEach {
+            let cxt = context()
+            sut = cxt.sut
+            scheduler = cxt.scheduler
+            logger = cxt.logger
+        }
+        
+        afterEach {
+            sut = nil
+            scheduler = nil
+            logger = nil
+        }
+        
+    }
+}
