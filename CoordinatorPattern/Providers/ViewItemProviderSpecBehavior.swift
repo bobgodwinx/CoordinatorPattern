@@ -82,5 +82,15 @@ class ViewItemProviderSpecBehavior: Quick.Behavior<ViewItemProviderContext> {
             }
         }
         
+        it("Should have zero event when there is no given-id ") {
+            SharingScheduler.mock(scheduler: scheduler) {
+                let recoredEvent = scheduler.record(source: sut.items)
+                /// start our scheduler
+                scheduler.start()
+                /// assert the result
+                expect(recoredEvent.events.count).to(equal(0))
+            }
+        }
+        
     }
 }
