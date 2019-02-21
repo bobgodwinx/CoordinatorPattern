@@ -92,5 +92,16 @@ class ViewItemProviderSpecBehavior: Quick.Behavior<ViewItemProviderContext> {
             }
         }
         
+        it("Should call `fetchViewItems(with:)` function with the correct given-id") {
+            SharingScheduler.mock(scheduler: scheduler) {
+                /// trigger a call
+                scheduler.drive(sut.sink, with: [Recorded.next(0, "262183162")])
+                _ = scheduler.record(source: sut.items)
+                scheduler.start()
+                /// assert the result
+                expect(logger).to(haveEntry(for: "fetchViewItems(with:)", with: "262183162"))
+            }
+        }
+        
     }
 }
