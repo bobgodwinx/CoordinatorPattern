@@ -103,5 +103,26 @@ class ViewItemProviderSpecBehavior: Quick.Behavior<ViewItemProviderContext> {
             }
         }
         
+        it("Should be true when isFetching") {
+            SharingScheduler.mock(scheduler: scheduler) {
+                /// trigger a call
+                scheduler.drive(sut.sink, with: [Recorded.next(0, "262183162")])
+                _ = scheduler.record(source: sut.items)
+                let recorded = scheduler.record(source: sut.isFetching)
+                scheduler.start()
+                let isFecthing = recorded.events.first!.value.element!
+                expect(isFecthing).to(beTrue())
+            }
+        }
+        
+        it("Should be false when !isFetching") {
+            SharingScheduler.mock(scheduler: scheduler) {
+                let recorded = scheduler.record(source: sut.isFetching)
+                scheduler.start()
+                let isFecthing = recorded.events.first!.value.element!
+                expect(isFecthing).to(beFalse())
+            }
+        }
+        
     }
 }
