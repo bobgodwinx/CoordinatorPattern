@@ -52,6 +52,7 @@
 		C4C6E97F22A1A97D00921114 /* ViewItemProviderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E97E22A1A97D00921114 /* ViewItemProviderSpecs.swift */; };
 		C4C6E98122A1AB6A00921114 /* ViewItemProviderSpecBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98022A1AB6A00921114 /* ViewItemProviderSpecBehavior.swift */; };
 		C4C6E98322A26CAD00921114 /* ViewItemCellViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98222A26CAD00921114 /* ViewItemCellViewModelSpecs.swift */; };
+		C4C6E98522A32DBF00921114 /* UIImageView+Rx+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		C4C6E97E22A1A97D00921114 /* ViewItemProviderSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemProviderSpecs.swift; sourceTree = "<group>"; };
 		C4C6E98022A1AB6A00921114 /* ViewItemProviderSpecBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemProviderSpecBehavior.swift; sourceTree = "<group>"; };
 		C4C6E98222A26CAD00921114 /* ViewItemCellViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCellViewModelSpecs.swift; sourceTree = "<group>"; };
+		C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rx+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			children = (
 				C4A50FA1229C6AC60037E608 /* CollectionDatasource.swift */,
 				C4C6E95B22A183D000921114 /* Foundation+Ext.swift */,
+				C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */,
 				C4C6E97822A19EF900921114 /* ActivityIndicator.swift */,
 			);
 			path = Utility;
@@ -434,6 +437,7 @@
 				C4C6E95F22A1853E00921114 /* ViewItem.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
 				C4C6E97622A19D2F00921114 /* ViewItemProvider.swift in Sources */,
+				C4C6E98522A32DBF00921114 /* UIImageView+Rx+Ext.swift in Sources */,
 				C4C6E96122A1855600921114 /* ItemContainer.swift in Sources */,
 				C4A50FA2229C6AC60037E608 /* CollectionDatasource.swift in Sources */,
 				C4A50FA6229C788A0037E608 /* Networking.swift in Sources */,
