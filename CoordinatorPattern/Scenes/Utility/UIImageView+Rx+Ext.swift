@@ -12,9 +12,8 @@ import RxCocoa
 import Kingfisher
 
 extension Reactive where Base: UIImageView {
-    func imageURL(placeholderImage: UIImage? = nil, errorImage: UIImage? = nil) -> Binder<URL?> {
+    func imageURL(errorImage: UIImage? = nil) -> Binder<URL?> {
         return Binder(self.base) { imageView, url in
-            imageView.image = placeholderImage
             imageView.kf.setImage(with: url) { result in
                 switch result {
                 case .success(let value):

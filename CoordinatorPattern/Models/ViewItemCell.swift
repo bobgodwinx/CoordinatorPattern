@@ -15,6 +15,29 @@ protocol BindableCell {
 }
 
 
-class ViewItemCell: UICollectionViewCell {
+class ViewItemCell: UICollectionViewCell, BindableCell {
     
+    private var bag = DisposeBag()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    override func awakeFromNib() {
+        fatalError()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = DisposeBag()
+    }
+    
+    func setupViews() {
+        
+    }
 }
