@@ -53,6 +53,7 @@
 		C4C6E98122A1AB6A00921114 /* ViewItemProviderSpecBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98022A1AB6A00921114 /* ViewItemProviderSpecBehavior.swift */; };
 		C4C6E98322A26CAD00921114 /* ViewItemCellViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98222A26CAD00921114 /* ViewItemCellViewModelSpecs.swift */; };
 		C4C6E98522A32DBF00921114 /* UIImageView+Rx+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */; };
+		C4C6E98D22A3D79600921114 /* ViewItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98C22A3D79600921114 /* ViewItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		C4C6E98022A1AB6A00921114 /* ViewItemProviderSpecBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemProviderSpecBehavior.swift; sourceTree = "<group>"; };
 		C4C6E98222A26CAD00921114 /* ViewItemCellViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCellViewModelSpecs.swift; sourceTree = "<group>"; };
 		C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rx+Ext.swift"; sourceTree = "<group>"; };
+		C4C6E98C22A3D79600921114 /* ViewItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 				C4C6E96022A1855600921114 /* ItemContainer.swift */,
 				C4C6E95E22A1853E00921114 /* ViewItem.swift */,
 				C4C6E96222A1888900921114 /* ViewItemSpecs.swift */,
+				C4C6E98C22A3D79600921114 /* ViewItemCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				C4A50FA6229C788A0037E608 /* Networking.swift in Sources */,
 				C4C6E97D22A1A7E800921114 /* ViewItemCellViewModel.swift in Sources */,
 				C4C6E96922A1940300921114 /* ViewItemAPI.swift in Sources */,
+				C4C6E98D22A3D79600921114 /* ViewItemCell.swift in Sources */,
 				C4C6E97B22A1A64B00921114 /* ViewItemCellViewModelType.swift in Sources */,
 				C4C6E95522A1702900921114 /* APIClient.swift in Sources */,
 			);
