@@ -37,7 +37,23 @@ class ViewItemCell: UICollectionViewCell, BindableCell {
         bag = DisposeBag()
     }
     
-    func setupViews() {
-        
+    func bind(_ viewModel: ViewItemCellViewModelType) {
+        viewModel
+            .thumbnailURL
+            .drive(imageView.rx.imageURL(errorImage: #imageLiteral(resourceName: "ImageError")))
+            .disposed(by: bag)
     }
+    
+    private func setupViews() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(imageView)
+    }
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "ImageLoading")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
 }
