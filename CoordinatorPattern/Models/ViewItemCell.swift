@@ -47,6 +47,13 @@ class ViewItemCell: UICollectionViewCell, BindableCell {
     private func setupViews() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
+        /// Setup Constraints
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),
+            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0)
+            ])
     }
     
     private lazy var imageView: UIImageView = {
