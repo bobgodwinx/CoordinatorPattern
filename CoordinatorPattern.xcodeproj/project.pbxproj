@@ -54,6 +54,7 @@
 		C4C6E98322A26CAD00921114 /* ViewItemCellViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98222A26CAD00921114 /* ViewItemCellViewModelSpecs.swift */; };
 		C4C6E98522A32DBF00921114 /* UIImageView+Rx+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */; };
 		C4C6E98D22A3D79600921114 /* ViewItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98C22A3D79600921114 /* ViewItemCell.swift */; };
+		C4C6E98F22A3F43600921114 /* ViewItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E98E22A3F43600921114 /* ViewItemRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		C4C6E98222A26CAD00921114 /* ViewItemCellViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCellViewModelSpecs.swift; sourceTree = "<group>"; };
 		C4C6E98422A32DBF00921114 /* UIImageView+Rx+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rx+Ext.swift"; sourceTree = "<group>"; };
 		C4C6E98C22A3D79600921114 /* ViewItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemCell.swift; sourceTree = "<group>"; };
+		C4C6E98E22A3F43600921114 /* ViewItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 				C4C6E95E22A1853E00921114 /* ViewItem.swift */,
 				C4C6E96222A1888900921114 /* ViewItemSpecs.swift */,
 				C4C6E98C22A3D79600921114 /* ViewItemCell.swift */,
+				C4C6E98E22A3F43600921114 /* ViewItemRow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				C4C6E95C22A183D000921114 /* Foundation+Ext.swift in Sources */,
 				C4C6E97922A19EF900921114 /* ActivityIndicator.swift in Sources */,
 				C4C6E97322A19B2300921114 /* ViewItemProviderType.swift in Sources */,
+				C4C6E98F22A3F43600921114 /* ViewItemRow.swift in Sources */,
 				C4C6E95F22A1853E00921114 /* ViewItem.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
 				C4C6E97622A19D2F00921114 /* ViewItemProvider.swift in Sources */,
