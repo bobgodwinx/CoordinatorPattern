@@ -10,4 +10,24 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class ViewItemViewModel { }
+final class ViewItemViewModel: ViewItemViewModelType {
+    /// datasource consumed by the
+    /// `ViewItemSceneController` UICollectionView
+    let datasource: Driver<[CollectionRow]>
+    /// init requires a `ViewItemProviderType`
+    init(_ provider: ViewItemProviderType) {
+        ///This is where the magic happens :-)
+        /// we start with a specific ID
+        /// in this example. Later we make it
+        /// searchable so the user can add
+        /// search inputs by themselves. 
+        provider.sink.onNext("262183162")
+        /// trnasforming `ViewItemCellViewModelType`
+        /// into `ViewItemRow`
+        datasource = provider
+            .items
+            .map { viewItems in viewItems.map { ViewItemRow($0) }}
+            .debug("view item", trimOutput: false)
+            .asDriver(onErrorJustReturn: [])
+    }
+}
