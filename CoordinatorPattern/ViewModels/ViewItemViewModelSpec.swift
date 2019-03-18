@@ -16,6 +16,23 @@ import RxCocoa
 
 class ViewItemViewModelSpec: QuickSpec {
     
+    override func spec() {
+        var sut: ViewItemViewModel!
+        var mockViewItemProvider: MockViewItemProvider!
+        var scheduler: TestScheduler!
+        
+        beforeEach {
+            scheduler = TestScheduler(initialClock: 0)
+            mockViewItemProvider = MockViewItemProvider(scheduler)
+            sut = ViewItemViewModel(mockViewItemProvider)
+        }
+        
+        afterEach {
+            scheduler = nil
+            mockViewItemProvider = nil
+            sut = nil
+        }
+    }
 }
 
 
