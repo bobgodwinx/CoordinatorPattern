@@ -32,6 +32,57 @@ class ViewItemViewModelSpec: QuickSpec {
             mockViewItemProvider = nil
             sut = nil
         }
+        
+        describe("spec for ViewModel") {
+            it("Datasource should have an Array of CollectionRow") {
+                SharingScheduler.mock(scheduler: scheduler) {
+                    /// observe events
+                    let recoredEvent = scheduler.record(source: sut.datasource)
+                    /// start our scheduler
+                    scheduler.start()
+                    let items = recoredEvent.events.first!.value.element!
+                    /// assert the result
+                    expect(items).to(beAKindOf(Array<CollectionRow>.self))
+                }
+            }
+            
+            it("The Array should not be empty()") {
+                SharingScheduler.mock(scheduler: scheduler) {
+                    /// observe events
+                    let recoredEvent = scheduler.record(source: sut.datasource)
+                    /// start our scheduler
+                    scheduler.start()
+                    let items = recoredEvent.events.first!.value.element!
+                    /// assert the result
+                    expect(items.isEmpty).to(beFalse())
+                }
+            }
+            
+            it("The Array count shoould be 14") {
+                SharingScheduler.mock(scheduler: scheduler) {
+                    /// observe events
+                    let recoredEvent = scheduler.record(source: sut.datasource)
+                    /// start our scheduler
+                    scheduler.start()
+                    let items = recoredEvent.events.first!.value.element!
+                    /// assert the result
+                    expect(items.count).to(equal(14))
+                }
+            }
+            
+            
+            it("items should be a `ViewItemRow` Type") {
+                SharingScheduler.mock(scheduler: scheduler) {
+                    /// observe events
+                    let recoredEvent = scheduler.record(source: sut.datasource)
+                    /// start our scheduler
+                    scheduler.start()
+                    let item = recoredEvent.events.first!.value.element![0]
+                    /// assert the result
+                    expect(item).to(beAKindOf(ViewItemRow.self))
+                }
+            }
+        }
     }
 }
 
