@@ -16,6 +16,24 @@ import RxCocoa
 
 class ImageSeceneViewModelSpecs: QuickSpec {
     override func spec() {
+        var sut: ImageSceneViewModel!
+        var mockViewItemCellViewModel: MockViewItemCellViewModel!
+        var row: ViewItemRow!
+        var scheduler: TestScheduler!
+        
+        beforeEach {
+            scheduler = TestScheduler(initialClock: 0)
+            mockViewItemCellViewModel = MockViewItemCellViewModel(scheduler)
+            row = ViewItemRow(mockViewItemCellViewModel)
+            sut = ImageSceneViewModel(row)
+        }
+        
+        afterEach {
+            scheduler = nil
+            mockViewItemCellViewModel = nil
+            row = nil
+            sut = nil
+        }
     }
 }
 
