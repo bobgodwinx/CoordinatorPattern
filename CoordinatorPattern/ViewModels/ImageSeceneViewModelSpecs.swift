@@ -18,3 +18,18 @@ class ImageSeceneViewModelSpecs: QuickSpec {
     override func spec() {
     }
 }
+
+
+class MockViewItemCellViewModel: BaseMock, ViewItemCellViewModelType {
+    
+    var thumbnailURL: Driver<URL?> {
+        let urlString = "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/Z-QAAOSwjfpcHOSV/$_2.jpg"
+        let url = URL(string: urlString)
+        return scheduler.just(url).asDriver(onErrorJustReturn: url)
+    }
+    
+    var imageURL: URL? {
+        let urlString = "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/Z-QAAOSwjfpcHOSV/$_27.jpg"
+        return URL(string: urlString)
+    }
+}
