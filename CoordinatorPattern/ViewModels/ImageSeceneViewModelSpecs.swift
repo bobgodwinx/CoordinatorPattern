@@ -34,6 +34,50 @@ class ImageSeceneViewModelSpecs: QuickSpec {
             row = nil
             sut = nil
         }
+        
+        describe("ImageScene ViewModel") {
+            it("image url should be a Type of `URL.self`") {
+                /// observe events
+                let recoredEvent = scheduler.record(source: sut.imageURL)
+                /// start our scheduler
+                scheduler.start()
+                let url = recoredEvent.events.first!.value.element!
+                /// assert the result
+                expect(url).to(beAKindOf(URL.self))
+            }
+            
+            it("image url string should not be empty") {
+                /// observe events
+                let recoredEvent = scheduler.record(source: sut.imageURL)
+                /// start our scheduler
+                scheduler.start()
+                let url = recoredEvent.events.first!.value.element!
+                /// assert the result
+                expect(url?.absoluteString).toNot(beNil())
+            }
+            
+            it("image url string should match the string we provided"){
+                /// observe events
+                let recoredEvent = scheduler.record(source: sut.imageURL)
+                /// start our scheduler
+                scheduler.start()
+                let urlString = "https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/Z-QAAOSwjfpcHOSV/$_27.jpg"
+                let url = recoredEvent.events.first!.value.element!
+                /// assert the result
+                expect(url?.absoluteString) == urlString
+            }
+            
+            it("image url string should have the correct suffix `$_27.jpg`"){
+                /// observe events
+                let recoredEvent = scheduler.record(source: sut.imageURL)
+                /// start our scheduler
+                scheduler.start()
+                let suffix = "$_27.jpg"
+                let url = recoredEvent.events.first!.value.element!
+                /// assert the result
+                expect(url?.absoluteString.hasSuffix(suffix)).to(beTrue())
+            }
+        }
     }
 }
 
