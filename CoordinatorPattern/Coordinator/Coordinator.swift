@@ -14,3 +14,18 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
     func start()
 }
+
+
+class MainCoordinator: Coordinator {
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.navigationController.navigationBar.isHidden = false
+    }
+    
+    func start() {
+        ///Implement the initial viewcontroller
+    }
+}
+
