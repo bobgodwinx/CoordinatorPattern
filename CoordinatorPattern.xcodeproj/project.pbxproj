@@ -62,6 +62,7 @@
 		C4C6E99A22A3FA7700921114 /* ImageSceneViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E99922A3FA7700921114 /* ImageSceneViewModelType.swift */; };
 		C4C6E99C22A3FAE900921114 /* ImageSeceneViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E99B22A3FAE900921114 /* ImageSeceneViewModelSpecs.swift */; };
 		C4C6E99F22A3FD4100921114 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E99E22A3FD4100921114 /* Coordinator.swift */; };
+		C4C6E9A222A3FE8700921114 /* ViewItemSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		C4C6E99922A3FA7700921114 /* ImageSceneViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSceneViewModelType.swift; sourceTree = "<group>"; };
 		C4C6E99B22A3FAE900921114 /* ImageSeceneViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSeceneViewModelSpecs.swift; sourceTree = "<group>"; };
 		C4C6E99E22A3FD4100921114 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemSceneController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		C4A50F9F229C6A740037E608 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C4C6E9A022A3FE6E00921114 /* ViewControllers */,
 				C4A50FA0229C6A830037E608 /* Utility */,
 			);
 			path = Scenes;
@@ -358,6 +361,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		C4C6E9A022A3FE6E00921114 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -474,6 +485,7 @@
 				C4C6E99F22A3FD4100921114 /* Coordinator.swift in Sources */,
 				C4C6E98F22A3F43600921114 /* ViewItemRow.swift in Sources */,
 				C4C6E95F22A1853E00921114 /* ViewItem.swift in Sources */,
+				C4C6E9A222A3FE8700921114 /* ViewItemSceneController.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
 				C4C6E97622A19D2F00921114 /* ViewItemProvider.swift in Sources */,
 				C4C6E98522A32DBF00921114 /* UIImageView+Rx+Ext.swift in Sources */,
