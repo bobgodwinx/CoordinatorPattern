@@ -204,13 +204,13 @@
 		C4A50F6E22980ADA0037E608 /* CoordinatorPattern */ = {
 			isa = PBXGroup;
 			children = (
+				C4A50F6F22980ADA0037E608 /* AppDelegate.swift */,
 				C4C6E99D22A3FD2700921114 /* Coordinator */,
 				C4A50F9F229C6A740037E608 /* Scenes */,
 				C4C6E96E22A1992800921114 /* ViewModels */,
 				C4C6E96D22A1991E00921114 /* Providers */,
 				C4C6E96C22A1990600921114 /* Models */,
 				C4A50FA3229C78250037E608 /* API */,
-				C4A50F6F22980ADA0037E608 /* AppDelegate.swift */,
 				C4A50F7622980ADC0037E608 /* Assets.xcassets */,
 				C4A50F7822980ADC0037E608 /* LaunchScreen.storyboard */,
 				C4A50F7B22980ADC0037E608 /* Info.plist */,
