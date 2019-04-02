@@ -30,3 +30,12 @@ class ViewItemSceneController: UIViewController {
         fatalError()
     }
 }
+
+extension ViewItemSceneController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        /// calculate the screen size / 2
+        let size: CGSize = UIScreen.main.bounds.size
+        let cellSize: CGFloat = (size.width / 2) - 8
+        return CGSize(width: cellSize, height: (cellSize - 44))
+    }
+}
