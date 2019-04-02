@@ -29,6 +29,21 @@ class ViewItemSceneController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets.zero
+        flowLayout.scrollDirection = .vertical
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register([ViewItemRow.self])
+        collectionView.isScrollEnabled = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.delegate = self
+        
+        return collectionView
+    }()
 }
 
 extension ViewItemSceneController: UICollectionViewDelegateFlowLayout {
