@@ -30,6 +30,18 @@ class ViewItemSceneController: UIViewController {
         fatalError()
     }
     
+    override func loadView() {
+        super.loadView()
+        
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            ])
+    }
+    
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets.zero
