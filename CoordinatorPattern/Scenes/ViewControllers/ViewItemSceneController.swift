@@ -30,6 +30,14 @@ class ViewItemSceneController: UIViewController {
         fatalError()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.datasource
+            .drive(collectionView.rx.items(dataSource: CollectionDatasource()))
+            .disposed(by: bag)
+    }
+    
     override func loadView() {
         super.loadView()
         
