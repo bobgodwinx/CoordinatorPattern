@@ -25,7 +25,11 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        ///Implement the initial viewcontroller
+        let client = APIClient.shared
+        let provider = ViewItemProvider(client)
+        let viewModel = ViewItemViewModel(provider)
+        let scene = ViewItemSceneController(viewModel, self)
+        navigationController.pushViewController(scene, animated: false)
     }
 }
 
