@@ -61,6 +61,7 @@
 		C4C6E99C22A3FAE900921114 /* ImageSeceneViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E99B22A3FAE900921114 /* ImageSeceneViewModelSpecs.swift */; };
 		C4C6E99F22A3FD4100921114 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E99E22A3FD4100921114 /* Coordinator.swift */; };
 		C4C6E9A222A3FE8700921114 /* ViewItemSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */; };
+		C4C6E9A422A432EE00921114 /* ImageItemSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E9A322A432EE00921114 /* ImageItemSceneController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		C4C6E99B22A3FAE900921114 /* ImageSeceneViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSeceneViewModelSpecs.swift; sourceTree = "<group>"; };
 		C4C6E99E22A3FD4100921114 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemSceneController.swift; sourceTree = "<group>"; };
+		C4C6E9A322A432EE00921114 /* ImageItemSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemSceneController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */,
+				C4C6E9A322A432EE00921114 /* ImageItemSceneController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				C4C6E95F22A1853E00921114 /* ViewItem.swift in Sources */,
 				C4C6E9A222A3FE8700921114 /* ViewItemSceneController.swift in Sources */,
 				C4A50F7022980ADA0037E608 /* AppDelegate.swift in Sources */,
+				C4C6E9A422A432EE00921114 /* ImageItemSceneController.swift in Sources */,
 				C4C6E97622A19D2F00921114 /* ViewItemProvider.swift in Sources */,
 				C4C6E98522A32DBF00921114 /* UIImageView+Rx+Ext.swift in Sources */,
 				C4C6E96122A1855600921114 /* ItemContainer.swift in Sources */,
