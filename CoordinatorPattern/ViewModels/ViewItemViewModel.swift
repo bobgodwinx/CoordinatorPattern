@@ -27,7 +27,6 @@ final class ViewItemViewModel: ViewItemViewModelType {
         datasource = provider
             .items
             .map { viewItems in viewItems.map { ViewItemRow($0) }}
-            .debug("view item", trimOutput: false)
             .asDriver(onErrorJustReturn: [])
     }
 }

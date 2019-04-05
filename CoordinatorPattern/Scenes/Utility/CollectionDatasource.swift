@@ -29,10 +29,13 @@ extension UICollectionView {
     func register(_ rows: [CollectionRow.Type]) {
         rows.forEach { register($0) }
     }
-    
+
     func register(_ row: CollectionRow.Type) {
-        let nib = UINib(nibName: row.nibName, bundle: nil)
-        register(nib, forCellWithReuseIdentifier: row.cellIdentifier)
+        //let nib = UINib(nibName: row.nibName, bundle: nil)
+        //register(nib, forCellWithReuseIdentifier: row.cellIdentifier)
+        
+        //TODO: Cleanup hardcoded `ViewItemCell.self`
+        register(ViewItemCell.self, forCellWithReuseIdentifier: row.cellIdentifier)
     }
 }
 
