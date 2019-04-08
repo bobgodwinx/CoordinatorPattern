@@ -28,4 +28,11 @@ class ImageItemSceneController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
 }
