@@ -23,6 +23,10 @@ class ImageItemSceneController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
         self.title = "Detail"
+        
+        viewModel.imageURL
+            .drive(imageView.rx.imageURL(errorImage: #imageLiteral(resourceName: "ImageError")))
+            .disposed(by: bag)
     }
     
     required init?(coder aDecoder: NSCoder) {
