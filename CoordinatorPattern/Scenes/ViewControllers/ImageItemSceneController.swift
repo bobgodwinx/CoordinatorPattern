@@ -29,6 +29,18 @@ class ImageItemSceneController: UIViewController {
         fatalError()
     }
     
+    override func loadView() {
+        super.loadView()
+        
+        view.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+            ])
+    }
+    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
