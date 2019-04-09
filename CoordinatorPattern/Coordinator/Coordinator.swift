@@ -12,7 +12,11 @@ import RxCocoa
 
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
+    /// Presents the `ViewItemSceneController`
+    /// which is also the start viewController
     func start()
+    /// Presents the `imageItemSceneController`
+    var imageItemSceneController: Binder<ViewItemRow> { get }
 }
 
 
@@ -30,6 +34,14 @@ class MainCoordinator: Coordinator {
         let viewModel = ViewItemViewModel(provider)
         let scene = ViewItemSceneController(viewModel, self)
         navigationController.pushViewController(scene, animated: false)
+    }
+    
+    var imageItemSceneController: Binder<ViewItemRow> {
+        return Binder(self) { coordinator, row in
+            let viewModel = ImageSceneViewModel(row)
+            let scene = ImageItemSceneController(viewModel, coordinator)
+            self.navigationController.pushViewController(scene, animated: true)
+        }
     }
 }
 
