@@ -36,6 +36,13 @@ class ViewItemSceneController: UIViewController {
         viewModel.datasource
             .drive(collectionView.rx.items(dataSource: CollectionDatasource()))
             .disposed(by: bag)
+        
+        if let coordinator = coordinator {
+            collectionView.rx
+                .modelSelected(ViewItemRow.self)
+                .bind(to: coordinator.imageItemSceneController)
+                .disposed(by: bag)
+        }
     }
     
     override func loadView() {
