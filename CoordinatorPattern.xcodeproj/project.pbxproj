@@ -164,6 +164,7 @@
 		C4C6E99E22A3FD4100921114 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C4C6E9A122A3FE8700921114 /* ViewItemSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemSceneController.swift; sourceTree = "<group>"; };
 		C4C6E9A322A432EE00921114 /* ImageItemSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemSceneController.swift; sourceTree = "<group>"; };
+		C4C6E9A522A44F1900921114 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +218,7 @@
 				C4A50F7822980ADC0037E608 /* LaunchScreen.storyboard */,
 				C4A50F7B22980ADC0037E608 /* Info.plist */,
 				C4C6E97722A19D9D00921114 /* Cartfile */,
+				C4C6E9A522A44F1900921114 /* README.md */,
 			);
 			path = CoordinatorPattern;
 			sourceTree = "<group>";
