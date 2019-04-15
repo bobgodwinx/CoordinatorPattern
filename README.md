@@ -16,5 +16,5 @@ Anyone interested is welcome to contribute to the project. I believe this will c
 Please kindly read the CONTRIBUTING.md file within the repository. The entire source code is available under the MIT license.
 
 ## Credits 
-The coordinator pattern makes use of third party libraries [RxSwift](https://github.com/ReactiveX/RxSwift), [Kingfisher](https://github.com/onevcat/Kingfisher), [Quick](https://github.com/Quick/Quick), [Nimble](https://github.com/Quick/Nimble) Their licenses are stored within their respective repositories. <br>
+The coordinator pattern makes use of third party libraries [RxSwift](https://github.com/ReactiveX/RxSwift), [Kingfisher](https://github.com/onevcat/Kingfisher), [Quick](https://github.com/Quick/Quick), [Nimble](https://github.com/Quick/Nimble), [Raywenderlich style guide](https://github.com/raywenderlich/swift-style-guide) Their licenses are stored within their respective repositories. <br>
 Swift, Swift logo, Xcode, iPhone are trademarks of Apple Inc., registered in the U.S. and other countries
